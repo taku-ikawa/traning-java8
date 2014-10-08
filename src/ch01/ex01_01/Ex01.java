@@ -22,7 +22,7 @@ public class Ex01 {
 	public static void showThread() {
 		System.out.println("-------------------------------------------------------");
 		new Throwable().printStackTrace();
-		System.out.println("Thread : "+Thread.currentThread().getThreadGroup().getName());
+		System.out.println("Thread : "+Thread.currentThread().getName());
 		System.out.println("-------------------------------------------------------");
 	}
 
