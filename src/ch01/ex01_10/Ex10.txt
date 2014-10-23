@@ -289,56 +289,56 @@ static void reverse(List<?> list)
 static <T> Comparator<T> reverseOrder()
 Comparableインタフェースを実装するオブジェクトのコレクションで自然順序付けの逆を義務付けるコンパレータを返します。
 
-→
+→Comparatorクラス staticメソッド
 
 --------------------
 
 static <T> Comparator<T> reverseOrder(Comparator<T> cmp)
 指定されたコンパレータの逆順を義務付けるコンパレータを返します。
 
-→
+→Comparatorクラス staticメソッド
 
 --------------------
 
 static void rotate(List<?> list, int distance)
 指定されたリストの要素を、指定された距離により回転します。
 
-→
+→Listクラス defaultメソッド
 
 --------------------
 
 static void shuffle(List<?> list)
 デフォルトの乱数発生の元を使用して、指定されたリストの順序を無作為に入れ替えます。
 
-→
+→Listクラス defaultメソッド
 
 --------------------
 
 static void shuffle(List<?> list, Random rnd)
 指定された乱数発生の元を使用して、指定されたリストの順序を無作為に入れ替えます。
 
-→
+→Listクラス defaultメソッド
 
 --------------------
 
 static <T> Set<T> singleton(T o)
 指定されたオブジェクトだけを格納している不変のセットを返します。
 
-→
+→Setクラス staticメソッド
 
 --------------------
 
 static <T> List<T> singletonList(T o)
 指定されたオブジェクトだけを格納している不変のリストを返します。
 
-→
+→Listクラス staticメソッド
 
 --------------------
 
 static <K,V> Map<K,V> singletonMap(K key, V value)
 指定された値に指定されたキーだけをマッピングする不変のマップを返します。
 
-→
+→Mapクラス staticメソッド
 
 --------------------
 
@@ -346,133 +346,133 @@ static <T extends Comparable<? super T>>
 void sort(List<T> list)
 指定されたリストを、その要素の自然順序付けに従って昇順にソートします。
 
-→
+→Listクラス defaultメソッド
 
 --------------------
 
 static <T> void sort(List<T> list, Comparator<? super T> c)
 指定されたコンパレータが示す順序に従って、指定されたリストをソートします。
 
-→
+→Listクラス defaultメソッド
 
 --------------------
 
 static void swap(List<?> list, int i, int j)
 指定されたリストの指定された位置にある要素をスワップします。
 
-→
+→Listクラス defaultメソッド
 
 --------------------
 
 static <T> Collection<T> synchronizedCollection(Collection<T> c)
 指定されたコレクションに連動する同期(スレッドセーフな)コレクションを返します。
 
-→
+→Collectionクラス staticメソッド
 
 --------------------
 
 static <T> List<T> synchronizedList(List<T> list)
 指定されたリストに連動する同期(スレッドセーフな)リストを返します。
 
-→
+→Listクラス staticメソッド
 
 --------------------
 
 static <K,V> Map<K,V> synchronizedMap(Map<K,V> m)
 指定されたマップに連動する同期(スレッドセーフな)マップを返します。
 
-→
+→Mapクラス staticメソッド
 
 --------------------
 
 static <K,V> NavigableMap<K,V> synchronizedNavigableMap(NavigableMap<K,V> m)
 指定されたナビゲート可能マップに連動する同期(スレッドセーフな)ナビゲート可能マップを返します。
 
-→
+→NavigableMapクラス staticメソッド
 
 --------------------
 
 static <T> NavigableSet<T> synchronizedNavigableSet(NavigableSet<T> s)
 指定されたナビゲート可能セットに連動する同期(スレッドセーフな)ナビゲート可能セットを返します。
 
-→
+→NavigableSetクラス staticメソッド
 
 --------------------
 
 static <T> Set<T> synchronizedSet(Set<T> s)
 指定されたセットに連動する同期(スレッドセーフな)セットを返します。
 
-→
+→Setクラス staticメソッド
 
 --------------------
 
 static <K,V> SortedMap<K,V> synchronizedSortedMap(SortedMap<K,V> m)
 指定されたソート・マップに連動する同期(スレッドセーフな)ソート・マップを返します。
 
-→
+→SortedMapクラス staticメソッド
 
 --------------------
 
 static <T> SortedSet<T> synchronizedSortedSet(SortedSet<T> s)
 指定されたソート・セットに連動する同期(スレッドセーフな)ソート・セットを返します。
 
-→
+→SortedSetクラス staticメソッド
 
 --------------------
 
 static <T> Collection<T> unmodifiableCollection(Collection<? extends T> c)
 指定されたコレクションの変更不可能なビューを返します。
 
-→
+→Collectionクラス staticメソッド
 
 --------------------
 
 static <T> List<T> unmodifiableList(List<? extends T> list)
 指定されたリストの変更不可能なビューを返します。
 
-→
+→Listクラス staticメソッド
 
 --------------------
 
 static <K,V> Map<K,V> unmodifiableMap(Map<? extends K,? extends V> m)
 指定されたマップの変更不可能なビューを返します。
 
-→
+→Mapクラス staticメソッド
 
 --------------------
 
 static <K,V> NavigableMap<K,V> unmodifiableNavigableMap(NavigableMap<K,? extends V> m)
 指定されたナビゲート可能マップの変更不可能なビューを返します。
 
-→
+→NavigableMapクラス staticメソッド
 
 --------------------
 
 static <T> NavigableSet<T> unmodifiableNavigableSet(NavigableSet<T> s)
 指定されたナビゲート可能セットの変更不可能なビューを返します。
 
-→
+→NavigableSetクラス staticメソッド
 
 --------------------
 
 static <T> Set<T> unmodifiableSet(Set<? extends T> s)
 指定されたセットの変更不可能なビューを返します。
 
-→
+→Setクラス staticメソッド
 
 --------------------
 
 static <K,V> SortedMap<K,V> unmodifiableSortedMap(SortedMap<K,? extends V> m)
 指定されたソート・マップの変更不可能なビューを返します。
 
-→
+→SortedMapクラス staticメソッド
 
 --------------------
 
 static <T> SortedSet<T> unmodifiableSortedSet(SortedSet<T> s)
 指定されたソート・セットの変更不可能なビューを返します。
 
-→
+→SortedSetクラス staticメソッド
 
 --------------------
 
