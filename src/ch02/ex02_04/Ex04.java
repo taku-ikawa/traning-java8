@@ -10,9 +10,11 @@ public class Ex04 {
 
 		// Stream.of(values) は Stream<int[]> 型
 		Stream<int[]> stream = Stream.of(values);
+		System.out.println("---Stream.of(values)---");
 		stream.forEach(System.out::println);
 
 		IntStream intStream = IntStream.of(values);
+		System.out.println("---IntStream.of(values)---");
 		intStream.forEach(System.out::println);
 	}
 

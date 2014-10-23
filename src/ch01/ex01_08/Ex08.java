@@ -10,6 +10,8 @@ public class Ex08 {
 		jyurai();
 	}
 
+	// 各ラムダ式は異なる値をキャプチャした
+
 	private static void kakucho() {
 		String[] names = {"Peter", "Paul", "Mary"};
 		List<Runnable> runners = new ArrayList<>();
@@ -21,6 +23,8 @@ public class Ex08 {
 			new Thread(runner).start();
 		}
 	}
+
+	// 従来のforループを使用するとコンパイルエラーになった
 
 	private static void jyurai() {
 		String[] names = {"Peter", "Paul", "Mary"};

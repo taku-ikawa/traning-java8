@@ -12,12 +12,15 @@ public class Ex09 {
 		list.add("Paul");
 		list.add("Mary");
 
-		Consumer<String> consumer = System.out::println;
-		Predicate<String> predicate = str -> str.startsWith("P");
+		Consumer<String> action = System.out::println;
+		Predicate<String> filter = str -> str.startsWith("P");
 
-		list.forEachIf(consumer, predicate);
+		list.forEachIf(action, filter);
 	}
 
 	public static class ArrayListEx<T> extends ArrayList<T> implements Collection2<T> {}
+
+	// Q：どのような場面でforEachIfメソッドを活用できるか？
+	// A：特定の条件を満たす要素に対して処理を行いたいケース。
 
 }

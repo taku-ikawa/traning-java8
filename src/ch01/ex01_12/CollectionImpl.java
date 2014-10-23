@@ -7,14 +7,17 @@ public class CollectionImpl implements Collection{
 
 
 	/*
-	 * "stream()"というprivateメソッドがあればコンパイルエラーになる
+	 * Q：Collectionインターフェースの新たなstreamメソッドが古いコードのコンパイルを失敗させるシナリオを述べなさい。
+	 * A："stream()"というprivateメソッドがあればコンパイルエラーになる
 	 *
-	 * private void stream() {}
-	 *
-	 * このクラスを古いverでコンパイルして生成したJARファイルに対してstreamメソッドがコールされた場合、
-	 * publicなstreamメソッドを検出できずにNoSuchMethodErrorが発生すると思われる。
-	 *
+	 * Q：jarファイルからの古いコードは、動作するでしょうか？
+	 * A：このクラスを古いverでコンパイルして生成したJARファイルに対してstreamメソッドがコールされた場合、
+	 *    publicなstreamメソッドを検出できずにNoSuchMethodErrorが発生すると考えられる。
 	 */
+
+	// 以下のような"stream()"というprivateメソッドがあればコンパイルエラーになる
+	// private void stream() {}
+
 	@Override
 	public int size() {
 		// TODO 自動生成されたメソッド・スタブ

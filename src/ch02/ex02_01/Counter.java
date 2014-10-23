@@ -9,8 +9,14 @@ import java.util.List;
 
 public class Counter {
 
-	public static void main(String[] args) throws IOException {
-		String contents = new String(Files.readAllBytes(Paths.get("alice.txt")), StandardCharsets.UTF_8);
+	public static void main(String[] args) {
+		String contents = null;
+		try {
+			contents = new String(Files.readAllBytes(Paths.get("alice.txt")), StandardCharsets.UTF_8);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
 		List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
 
 		Counter counter = new Counter();

@@ -13,29 +13,29 @@ public class Ex03 {
 		normal();
 		para();
 	}
-	
+
 	private static void normal() throws IOException {
 		String contents = new String(Files.readAllBytes(Paths.get("alice_big.txt")), StandardCharsets.UTF_8);
 		List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
-		
+
 		long before = System.nanoTime();
 		long count = words.stream().filter(w -> w.length() > 12).count();
 		long after = System.nanoTime();
-		
-		System.out.println("count: "+count);
-		System.out.println(after -before);
+
+		System.out.println("stream");
+		System.out.println("時間："+(after -before));
 	}
-	
+
 	private static void para() throws IOException {
 		String contents = new String(Files.readAllBytes(Paths.get("alice_big.txt")), StandardCharsets.UTF_8);
 		List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
-		
+
 		long before = System.nanoTime();
 		long count = words.parallelStream().filter(w -> w.length() > 12).count();
 		long after = System.nanoTime();
-		
-		System.out.println("count: "+count);
-		System.out.println(after -before);
+
+		System.out.println("parallelStream");
+		System.out.println("時間："+(after -before));
 	}
 
 }
