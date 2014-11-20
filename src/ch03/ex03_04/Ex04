@@ -1,0 +1,17 @@
+Q:Filterとう名前を持つ関数型インターフェースがJavaAPIにいくつあるか？
+
+javax.xml.stream.EventFilter
+https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/EventFilter.html
+
+java.io.FileFilter
+https://docs.oracle.com/javase/jp/6/api/java/io/FileFilter.html
+
+java.io.FilenameFilter
+https://docs.oracle.com/javase/jp/6/api/java/io/FilenameFilter.html
+
+java.util.logging.Filter
+https://docs.oracle.com/javase/7/docs/api/java/util/logging/Filter.html
+
+Q:どれがPredicate<T>よりも付加価値があるか？
+どれも付加価値はない
+
