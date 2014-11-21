@@ -1,7 +1,5 @@
-package ch03.ex03_05;
+package ch03.ex03_08;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.function.UnaryOperator;
 
 import javafx.application.Application;
@@ -17,13 +15,10 @@ public class Ex05 extends Application{
 
 	public static Image transform(Image in, UnaryOperator<Color> f) {
 		int width = (int)in.getWidth();
-		int height = (int)in.getHeight();
-		System.out.println(width);
-		System.out.println(height);
+		int height = (int)in.getWidth();
 		WritableImage out = new WritableImage(width, height);
 		for(int x =0; x < width; x++) {
 			for(int y = 0; y < height; y++) {
-				System.out.println("x:"+x+" y:"+y);
 				out.getPixelWriter().setColor(x, y, f.apply(in.getPixelReader().getColor(x, y)));
 			}
 		}
@@ -37,25 +32,18 @@ public class Ex05 extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		ImageView imageView = new ImageView();
-		Image image = new Image(new FileInputStream(new File("furano.jpg")));
+		Image image = new Image(getClass().getResourceAsStream("test.jpg"));
 		imageView.setImage(image);
-
-		image = transform(image, Color::brighter);
 
 		StackPane root = new StackPane();
 		root.getChildren().add(imageView);
 
-		Scene scene = new Scene(root, 200, 150);
+		Scene scene = new Scene(root, 300, 250);
 
-		stage.setTitle("富良野");
+		stage.setTitle("Hello World!");
 		stage.setScene(scene);
 		stage.show();
 
-		//Thread.sleep(1000);
-
-
-		//imageView.setImage(image);
-		//stage.show();
 	}
 
 }
