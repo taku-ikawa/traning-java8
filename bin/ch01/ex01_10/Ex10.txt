@@ -1,0 +1,481 @@
+
+----------------------------------------
+基本方針
+・java.utilのIFの中から選ぶ
+  http://docs.oracle.com/javase/jp/8/api/
+・すでに同じメソッドが用意されていればそのIFのデフォルトメソッドとする
+  複数該当するIFがあればその最も上位のIFのデフォルトメソッドとする
+・用意されてなければstaticメソッドとして、適当なIFを探す
+----------------------------------------
+参考
+http://docs.oracle.com/javase/jp/8/api/
+----------------------------------------
+
+
+static <T> boolean addAll(Collection<? super T> c, T... elements)
+指定されたすべての要素を指定されたコレクションに追加します。
+
+→Collectionクラス default boolean addAll(T... elements)
+
+--------------------
+
+static <T> Queue<T> asLifoQueue(Deque<T> deque)
+Dequeのビューを後入れ先出し(Lifo)のQueueとして返します。
+
+→Dequeクラス default Queue<T> asLifoQueue(Deque<T> deque)
+
+--------------------
+
+static <T> int binarySearch(List<? extends Comparable<? super T>> list, T key)
+バイナリ・サーチ・アルゴリズムを使用して、指定されたリストから指定されたオブジェクトを検索します。
+
+→Listクラス default int binarySearch(T key)
+
+--------------------
+
+static <T> int binarySearch(List<? extends T> list, T key, Comparator<? super T> c)
+バイナリ・サーチ・アルゴリズムを使用して、指定されたリストから指定されたオブジェクトを検索します。
+
+→Listクラス default int binarySearch(T key, Comparator<? super T> c)
+
+--------------------
+
+static <E> Collection<E> checkedCollection(Collection<E> c, Class<E> type)
+指定されたコレクションの、動的に型保証されたビューを返します。
+
+→Collectionクラス static <E> Collection<E> checkedCollection(Collection<E> c, Class<E> type)
+
+--------------------
+
+static <E> List<E> checkedList(List<E> list, Class<E> type)
+指定されたリストの動的に型保証されたビューを返します。
+
+→Listクラス staticメソッド
+
+--------------------
+
+static <K,V> Map<K,V> checkedMap(Map<K,V> m, Class<K> keyType, Class<V> valueType)
+指定されたマップの動的に型保証されたビューを返します。
+
+→Mapクラス staticメソッド
+
+--------------------
+static <K,V> NavigableMap<K,V> checkedNavigableMap(NavigableMap<K,V> m, Class<K> keyType, Class<V> valueType)
+指定されたナビゲート可能マップの動的に型保証されたビューを返します。
+
+→NavigableMapクラス staticメソッド
+
+--------------------
+
+static <E> NavigableSet<E> checkedNavigableSet(NavigableSet<E> s, Class<E> type)
+指定されたナビゲート可能セットの動的に型保証されたビューを返します。
+
+→NavigableSetクラス staticメソッド
+
+--------------------
+
+static <E> Queue<E> checkedQueue(Queue<E> queue, Class<E> type)
+指定されたキューの動的に型保証されたビューを返します。
+
+→Queueクラス staticメソッド
+
+--------------------
+
+static <E> Set<E> checkedSet(Set<E> s, Class<E> type)
+指定されたセットの動的に型保証されたビューを返します。
+
+→Setクラス staticメソッド
+
+--------------------
+
+static <K,V> SortedMap<K,V> checkedSortedMap(SortedMap<K,V> m, Class<K> keyType, Class<V> valueType)
+指定されたソート・マップの動的に型保証されたビューを返します。
+
+→SortedMapクラス staticメソッド
+
+--------------------
+
+static <E> SortedSet<E> checkedSortedSet(SortedSet<E> s, Class<E> type)
+指定されたソート・セットの動的に型保証されたビューを返します。
+
+→SortedSetクラス staticメソッド
+
+--------------------
+
+static <T> void copy(List<? super T> dest, List<? extends T> src)
+あるリストから別のリストにすべての要素をコピーします。
+
+→Listクラス staticメソッド
+
+--------------------
+
+static boolean disjoint(Collection<?> c1, Collection<?> c2)
+指定された2つのコレクションに共通の要素が存在しない場合、trueを返します。
+
+→Collectionクラス staticメソッド
+
+--------------------
+
+static <T> Enumeration<T> emptyEnumeration()
+要素が1つも含まれていない列挙を返します。
+
+→Enumeration staticメソッド
+
+--------------------
+
+static <T> Iterator<T> emptyIterator()
+要素が1つも含まれていないイテレータを返します。
+
+→Iteratorクラス staticメソッド
+
+--------------------
+
+static <T> List<T> emptyList()
+空のリスト(不変)を返します。
+
+→Listクラス staticメソッド
+
+--------------------
+
+static <T> ListIterator<T> emptyListIterator()
+要素が1つも含まれていないリスト・イテレータを返します。
+
+→ListIteratorクラス staticメソッド
+
+--------------------
+
+static <K,V> Map<K,V> emptyMap()
+空のマップ(不変)を返します。
+
+→Mapクラス staticメソッド
+
+--------------------
+
+static <K,V> NavigableMap<K,V> emptyNavigableMap()
+空のナビゲート可能マップ(不変)を返します。
+
+→NavigableMapクラス staticメソッド
+
+--------------------
+
+static <E> NavigableSet<E> emptyNavigableSet()
+空のナビゲート可能セット(不変)を返します。
+
+→NavigableSetクラス staticメソッド
+
+--------------------
+
+static <T> Set<T> emptySet()
+空のセット(不変)を返します。
+
+→Setクラス staticメソッド
+
+--------------------
+
+static <K,V> SortedMap<K,V> emptySortedMap()
+空のソート・マップ(不変)を返します。
+
+→SortedMapクラス staticメソッド
+
+--------------------
+
+static <E> SortedSet<E> emptySortedSet()
+空のソート・セット(不変)を返します。
+
+→SortedSetクラス staticメソッド
+
+--------------------
+
+static <T> Enumeration<T> enumeration(Collection<T> c)
+指定されたコレクションの列挙を返します。
+
+→Enumerationクラス defaultメソッド
+
+--------------------
+
+static <T> void fill(List<? super T> list, T obj)
+指定されたリストのすべての要素を指定された要素で置き換えます。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static int frequency(Collection<?> c, Object o)
+指定されたコレクション内で、指定されたオブジェクトと等価な要素の数を返します。
+
+→Collectionクラス defaultメソッド
+
+--------------------
+
+static int indexOfSubList(List<?> source, List<?> target)
+指定されたソース・リスト内で、指定されたターゲット・リストが最初に出現した位置の開始位置を返します。こうした出現がない場合は -1を返します。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static int lastIndexOfSubList(List<?> source, List<?> target)
+指定されたソース・リスト内で、最後に出現した指定ターゲット・リストの開始位置を返します。こうした出現がない場合は -1を返します。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static <T> ArrayList<T> list(Enumeration<T> e)
+指定された列挙により返された要素を含む配列リストを、返された順番で返します。
+
+→ArrayListクラス staticメソッド
+
+--------------------
+
+static <T extends Object & Comparable<? super T>>
+T max(Collection<? extends T> coll)
+要素の自然順序付けに従って、指定されたコレクションの最大の要素を返します。
+
+→Collectionクラス defaultメソッド
+
+--------------------
+
+static <T> T max(Collection<? extends T> coll, Comparator<? super T> comp)
+指定されたコンパレータが示す順序に従って、指定されたコレクションの最大の要素を返します。
+
+→Collectionクラス defaultメソッド
+
+--------------------
+
+static <T extends Object & Comparable<? super T>>
+T min(Collection<? extends T> coll)
+要素の自然順序付けに従って、指定されたコレクションの最小の要素を返します。
+
+→Collectionクラス defaultメソッド
+
+--------------------
+
+static <T> T min(Collection<? extends T> coll, Comparator<? super T> comp)
+指定されたコンパレータが示す順序に従って、指定されたコレクションの最小の要素を返します。
+
+→Collectionクラス defaultメソッド
+
+--------------------
+
+static <T> List<T> nCopies(int n, T o)
+指定されたオブジェクトのn個のコピーで構成される不変のリストを返します。
+
+→Listクラス staticメソッド
+
+--------------------
+
+static <E> Set<E> newSetFromMap(Map<E,Boolean> map)
+指定されたマップに連動するセットを返します。
+
+→Setクラス staticメソッド
+
+--------------------
+
+static <T> boolean replaceAll(List<T> list, T oldVal, T newVal)
+リスト内に出現する指定された値をすべてほかの値に置き換えます。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static void reverse(List<?> list)
+指定されたリストの要素の順序を逆にします。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static <T> Comparator<T> reverseOrder()
+Comparableインタフェースを実装するオブジェクトのコレクションで自然順序付けの逆を義務付けるコンパレータを返します。
+
+→Comparatorクラス staticメソッド
+
+--------------------
+
+static <T> Comparator<T> reverseOrder(Comparator<T> cmp)
+指定されたコンパレータの逆順を義務付けるコンパレータを返します。
+
+→Comparatorクラス staticメソッド
+
+--------------------
+
+static void rotate(List<?> list, int distance)
+指定されたリストの要素を、指定された距離により回転します。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static void shuffle(List<?> list)
+デフォルトの乱数発生の元を使用して、指定されたリストの順序を無作為に入れ替えます。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static void shuffle(List<?> list, Random rnd)
+指定された乱数発生の元を使用して、指定されたリストの順序を無作為に入れ替えます。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static <T> Set<T> singleton(T o)
+指定されたオブジェクトだけを格納している不変のセットを返します。
+
+→Setクラス staticメソッド
+
+--------------------
+
+static <T> List<T> singletonList(T o)
+指定されたオブジェクトだけを格納している不変のリストを返します。
+
+→Listクラス staticメソッド
+
+--------------------
+
+static <K,V> Map<K,V> singletonMap(K key, V value)
+指定された値に指定されたキーだけをマッピングする不変のマップを返します。
+
+→Mapクラス staticメソッド
+
+--------------------
+
+static <T extends Comparable<? super T>>
+void sort(List<T> list)
+指定されたリストを、その要素の自然順序付けに従って昇順にソートします。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static <T> void sort(List<T> list, Comparator<? super T> c)
+指定されたコンパレータが示す順序に従って、指定されたリストをソートします。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static void swap(List<?> list, int i, int j)
+指定されたリストの指定された位置にある要素をスワップします。
+
+→Listクラス defaultメソッド
+
+--------------------
+
+static <T> Collection<T> synchronizedCollection(Collection<T> c)
+指定されたコレクションに連動する同期(スレッドセーフな)コレクションを返します。
+
+→Collectionクラス staticメソッド
+
+--------------------
+
+static <T> List<T> synchronizedList(List<T> list)
+指定されたリストに連動する同期(スレッドセーフな)リストを返します。
+
+→Listクラス staticメソッド
+
+--------------------
+
+static <K,V> Map<K,V> synchronizedMap(Map<K,V> m)
+指定されたマップに連動する同期(スレッドセーフな)マップを返します。
+
+→Mapクラス staticメソッド
+
+--------------------
+
+static <K,V> NavigableMap<K,V> synchronizedNavigableMap(NavigableMap<K,V> m)
+指定されたナビゲート可能マップに連動する同期(スレッドセーフな)ナビゲート可能マップを返します。
+
+→NavigableMapクラス staticメソッド
+
+--------------------
+
+static <T> NavigableSet<T> synchronizedNavigableSet(NavigableSet<T> s)
+指定されたナビゲート可能セットに連動する同期(スレッドセーフな)ナビゲート可能セットを返します。
+
+→NavigableSetクラス staticメソッド
+
+--------------------
+
+static <T> Set<T> synchronizedSet(Set<T> s)
+指定されたセットに連動する同期(スレッドセーフな)セットを返します。
+
+→Setクラス staticメソッド
+
+--------------------
+
+static <K,V> SortedMap<K,V> synchronizedSortedMap(SortedMap<K,V> m)
+指定されたソート・マップに連動する同期(スレッドセーフな)ソート・マップを返します。
+
+→SortedMapクラス staticメソッド
+
+--------------------
+
+static <T> SortedSet<T> synchronizedSortedSet(SortedSet<T> s)
+指定されたソート・セットに連動する同期(スレッドセーフな)ソート・セットを返します。
+
+→SortedSetクラス staticメソッド
+
+--------------------
+
+static <T> Collection<T> unmodifiableCollection(Collection<? extends T> c)
+指定されたコレクションの変更不可能なビューを返します。
+
+→Collectionクラス staticメソッド
+
+--------------------
+
+static <T> List<T> unmodifiableList(List<? extends T> list)
+指定されたリストの変更不可能なビューを返します。
+
+→Listクラス staticメソッド
+
+--------------------
+
+static <K,V> Map<K,V> unmodifiableMap(Map<? extends K,? extends V> m)
+指定されたマップの変更不可能なビューを返します。
+
+→Mapクラス staticメソッド
+
+--------------------
+
+static <K,V> NavigableMap<K,V> unmodifiableNavigableMap(NavigableMap<K,? extends V> m)
+指定されたナビゲート可能マップの変更不可能なビューを返します。
+
+→NavigableMapクラス staticメソッド
+
+--------------------
+
+static <T> NavigableSet<T> unmodifiableNavigableSet(NavigableSet<T> s)
+指定されたナビゲート可能セットの変更不可能なビューを返します。
+
+→NavigableSetクラス staticメソッド
+
+--------------------
+
+static <T> Set<T> unmodifiableSet(Set<? extends T> s)
+指定されたセットの変更不可能なビューを返します。
+
+→Setクラス staticメソッド
+
+--------------------
+
+static <K,V> SortedMap<K,V> unmodifiableSortedMap(SortedMap<K,? extends V> m)
+指定されたソート・マップの変更不可能なビューを返します。
+
+→SortedMapクラス staticメソッド
+
+--------------------
+
+static <T> SortedSet<T> unmodifiableSortedSet(SortedSet<T> s)
+指定されたソート・セットの変更不可能なビューを返します。
+
+→SortedSetクラス staticメソッド
+
+--------------------
+
+
+
+
