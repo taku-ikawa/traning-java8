@@ -4,16 +4,8 @@ import java.util.stream.Stream;
 
 public class Ex05 {
 
-	public static void main(String[] args) {
-
-		long a = 25214903917L;
-		int c = 11;
-		long m = (long) Math.pow(2, 48);
-		long seed = 0;
-
-		Stream<Long> stream = Stream.iterate(seed, n -> ((a * n) + c) % m).limit(100);
-
-		stream.forEach(System.out::println);
+	public static Stream<Long> createRunfomStream(long a, int c, long m, long seed) {
+		return Stream.iterate(seed, n -> ((a * n) + c) % m);
 	}
 
 }

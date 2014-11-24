@@ -1,8 +1,7 @@
-package ch03.ex03_06;
+package ch03.ex03_08;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.function.BiFunction;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -16,21 +15,15 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Ex06 extends Application{
+public class Ex08 extends Application{
 
-	public static <T> Image transform(Image in, BiFunction<Color, T, Color> f, T tag) {
-		int wakuWidth = 10;
-
+	public static Image transform(Image in, ColorTransformer f) {
 		int width = (int)in.getWidth();
 		int height = (int)in.getHeight();
 		WritableImage out = new WritableImage(width, height);
 		for(int x =0; x < width; x++) {
 			for(int y = 0; y < height; y++) {
-				if((x < wakuWidth) || ((width-wakuWidth) <= x) || (y < wakuWidth) || ((height-wakuWidth) <= y)) {
-					out.getPixelWriter().setColor(x, y, Color.DARKGREY);
-				}else {
-					out.getPixelWriter().setColor(x, y, f.apply(in.getPixelReader().getColor(x, y), tag));
-				}
+				out.getPixelWriter().setColor(x, y, f.apply(x, y, in.getPixelReader().getColor(x, y)));
 			}
 		}
 		return out;
@@ -50,9 +43,7 @@ public class Ex06 extends Application{
 
 		Timeline timeline = new Timeline(
 				new KeyFrame(new Duration(1), event -> imageView.setImage(image)),
-				new KeyFrame(new Duration(3000), event -> imageView.setImage(transform(image,
-						(c, factor) -> c.deriveColor(0, 1, factor, 1), //factor分だけcを明るくする
-						3.0))) //ファクター3.0を使用する
+				new KeyFrame(new Duration(1500), event -> imageView.setImage(transform(image, ColorTransformer.applyFrame(image, 10, Color.DARKBLUE))))
 				);
 		timeline.play();
 	}
@@ -60,5 +51,4 @@ public class Ex06 extends Application{
 	public static void main(String[] args) {
 		launch(args);
 	}
-
 }
