@@ -5,8 +5,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -14,16 +15,23 @@ public class Ex01 extends Application{
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Label message = new Label("aaaaaaaaaaa");
-		message.setFont(new Font(100));
-		TextField textField =  new TextField();
+		String inicialString = "Hello, JavaFX!";
+		Label label = new Label(inicialString);
+		label.setFont(new Font(100));
+		TextField textField =  new TextField(inicialString);
+		
+		TableView<String> tableView = new TableView<String>();
+		//tableView.
 
+		//label.textProperty().bind(textField.textProperty());
+		
+		
 
-		StackPane borderPane = new StackPane();
-		borderPane.getChildren().add(message);
-		borderPane.getChildren().add(textField);
+		BorderPane borderPane = new BorderPane();
+		borderPane.setTop(label);
+		borderPane.setBottom(textField);
 
-		stage.setScene(new Scene(borderPane, 600, 300));
+		stage.setScene(new Scene(borderPane, 1000, 150));
 		stage.setTitle(".....");
 		stage.show();
 	}
