@@ -1,11 +1,8 @@
 package ch04.ex04_01;
 
 import javafx.application.Application;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
@@ -19,13 +16,8 @@ public class Ex01 extends Application{
 		Label label = new Label(inicialString);
 		label.setFont(new Font(100));
 		TextField textField =  new TextField(inicialString);
-		
-		TableView<String> tableView = new TableView<String>();
-		//tableView.
 
-		//label.textProperty().bind(textField.textProperty());
-		
-		
+		label.textProperty().bind(textField.textProperty());
 
 		BorderPane borderPane = new BorderPane();
 		borderPane.setTop(label);
@@ -34,19 +26,6 @@ public class Ex01 extends Application{
 		stage.setScene(new Scene(borderPane, 1000, 150));
 		stage.setTitle(".....");
 		stage.show();
-	}
-
-	public class MyTextField {
-		private StringProperty text = new SimpleStringProperty("");
-		public final StringProperty textProperty() {
-			return text;
-		}
-		public final void setText(String newValue) {
-			text.set(newValue);
-		}
-		public final String getText() {
-			return text.get();
-		}
 	}
 
 	public static void main(String[] args) {

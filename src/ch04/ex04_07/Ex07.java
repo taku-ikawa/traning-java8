@@ -1,4 +1,4 @@
-package ch04.ex04_03;
+package ch04.ex04_07;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class Ex03 extends Application{
+public class Ex07 extends Application{
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -57,6 +57,8 @@ public class Ex03 extends Application{
 		GridPane gridPane = new GridPane();
 		gridPane.setHgap(10);
 		gridPane.setVgap(16);
+		
+		gridPane.setGridLinesVisible(true);
 
 		gridPane.add(meishiLabel, 1, 0);
 

@@ -1,8 +1,6 @@
 package ch04.ex04_02;
 
 import javafx.application.Application;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -47,19 +45,6 @@ public class Ex02 extends Application{
 		stage.setScene(new Scene(gridPane, 1000, 400));
 		stage.setTitle(".....");
 		stage.show();
-	}
-
-	public class MyTextField {
-		private StringProperty text = new SimpleStringProperty("");
-		public final StringProperty textProperty() {
-			return text;
-		}
-		public final void setText(String newValue) {
-			text.set(newValue);
-		}
-		public final String getText() {
-			return text.get();
-		}
 	}
 
 	public static void main(String[] args) {
