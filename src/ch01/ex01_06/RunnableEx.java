@@ -1,13 +1,23 @@
 package ch01.ex01_06;
 
+import java.util.Objects;
+
 public interface RunnableEx {
 
+	/**
+	 * チェックされるすべての例外をキャッチし、それをチェックされない例外へ変える
+	 * @param runner
+	 * @return
+	 */
 	public static Runnable uncheck(RunnableEx runner){
+		Objects.requireNonNull(runner);
 		return () -> {
 			try {
 				runner.run();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			} catch (RuntimeException e) {
+				throw e;
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		};
 	}

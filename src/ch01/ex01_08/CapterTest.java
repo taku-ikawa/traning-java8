@@ -3,7 +3,7 @@ package ch01.ex01_08;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ex08 {
+public class CapterTest {
 
 	public static void main(String[] args) {
 		kakucho();
