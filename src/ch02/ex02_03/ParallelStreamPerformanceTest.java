@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
-public class Ex03 {
+public class ParallelStreamPerformanceTest {
 
 	public static void main(String[] argws) throws IOException {
 		normal();

@@ -2,7 +2,7 @@ package ch02.ex02_07;
 
 import java.util.stream.Stream;
 
-public class Ex07 {
+public class FiniteInspection {
 
 	public static void main(String[] args) {
 		isFinite(Stream.generate(Math::random));

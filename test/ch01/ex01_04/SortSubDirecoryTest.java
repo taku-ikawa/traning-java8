@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -38,7 +38,7 @@ public class SortSubDirecoryTest {
 
 		// アウトプットの中から判定対象のファイル名、ディレクトリ名だけを抜き取る
 		List<String> fileNameList = new ArrayList<String>();
-		Arrays.asList(out).forEach(file -> {
+		Stream.of(out).forEach(file -> {
 			if(testTargetList.contains(file.getName())) {
 				fileNameList.add(file.getName());
 			}

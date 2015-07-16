@@ -7,11 +7,12 @@ import java.util.stream.Stream;
 
 public class Zip {
 
-	public static void main(String[] args) {
-		Stream<String> stream = zip(Stream.of("a", "b"), Stream.of("x", "y", "z"));
-		stream.forEach(System.out::println);
-	}
-
+	/**
+	 * streamであるfirstとsecondから要素を交互に取り出し、どちらかのストリームから要素がなくなったら停止する
+	 * @param first
+	 * @param second
+	 * @return
+	 */
 	public static<T> Stream<T> zip(Stream<T> first, Stream<T> second) {
 		List<T> firstList = first.collect(Collectors.toList());
 		List<T> secondList = second.collect(Collectors.toList());
