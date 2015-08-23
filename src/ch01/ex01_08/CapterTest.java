@@ -11,6 +11,7 @@ public class CapterTest {
 	}
 
 	// 各ラムダ式は異なる値をキャプチャした
+	// nameはラムダ式の中のローカル変数であるため
 
 	private static void kakucho() {
 		String[] names = {"Peter", "Paul", "Mary"};

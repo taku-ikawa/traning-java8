@@ -2,66 +2,53 @@ package ch03.ex03_13;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.UnaryOperator;
+import java.util.Objects;
 
 import javafx.scene.image.Image;
-import javafx.scene.image.WritableImage;
-import javafx.scene.paint.Color;
 
 public class LatentImage {
 
 	private Image in;
-	private List<ColorTransformer> pendingColorTransformerOperatins = new ArrayList<ColorTransformer>();
+	private List<ImageTransformer> pendingImageTransformerOperatins = new ArrayList<ImageTransformer>();
 
 	private LatentImage(Image in) {
 		this.in = in;
 	}
 
-	LatentImage transform(UnaryOperator<Color> f) {
-		pendingColorTransformerOperatins.add(ColorTransformer.transformColor(f));
+	/**
+	 * ImageTransformerで定義される遅延操作をLatentImageに変換する
+	 * @param f
+	 * @return
+	 * @throws NullPointerException fがnullのケース
+	 */
+	LatentImage transform(ImageTransformer f) {
+		Objects.requireNonNull(f, "f is null");
+		pendingImageTransformerOperatins.add(f);
 		return this;
 	}
 
-	LatentImage transform(ColorTransformer f) {
-		pendingColorTransformerOperatins.add(f);
-		return this;
-	}
-
+	/**
+	 * LatentImageを生成する
+	 * @param in
+	 * @return
+	 * @throws NullPointerException inがnullのケース
+	 */
 	static LatentImage from(Image in) {
+		Objects.requireNonNull(in, "in is null");
 		return new LatentImage(in);
 	}
 
+	/**
+	 * LatentImageとして蓄積された遅延操作を実行して結果をImageとして返す
+	 * @return
+	 */
 	Image toImage() {
-		int width = (int)in.getWidth();
-		int height = (int)in.getHeight();
-		WritableImage out = new WritableImage(width, height);
-		
-		Color[][] tmp = new Color[width][height];
-		
-		for(int x =0; x < width; x++) {
-			for(int y = 0; y < height; y++) {
-				tmp[x][y] = in.getPixelReader().getColor(x, y);
-			}
+		Image outImage = in;
+		for(ImageTransformer f : pendingImageTransformerOperatins) {
+			// 演算の１つが評価される際に、前段の計算が強制されるようにする
+			outImage = f.apply(outImage);
 		}
-		
-		for(ColorTransformer f : pendingColorTransformerOperatins) {
-			for(int x =0; x < width; x++) {
-				for(int y = 0; y < height; y++) {
-					tmp[x][y] = f.apply(x, y, tmp[x][y]);
-				}
-			}
-		}
-		
-		for(int x =0; x < width; x++) {
-			for(int y = 0; y < height; y++) {
-				out.getPixelWriter().setColor(x, y, tmp[x][y]);
-			}
-		}
-		
-		return out;
+		return outImage;
 	}
-
-
-
 
 }

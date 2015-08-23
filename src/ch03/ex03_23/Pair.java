@@ -1,5 +1,6 @@
 package ch03.ex03_23;
 
+import java.util.Objects;
 import java.util.function.Function;
 
 public class Pair<T> {
@@ -12,8 +13,15 @@ public class Pair<T> {
 		this.t2 = t2;
 	}
 
-	public <T, R> Pair<T> map(Function<T, R> f) {
-		return new Pair(f.apply((T) this.t1), f.apply((T) this.t2));
+	/**
+	 * PairをFunctionに従って変換したPairを返す
+	 * @param f
+	 * @return
+	 * @throws NullPointerException 引数がnullのケース
+	 */
+	public Pair<T> map(Function<T, T> f) {
+		Objects.requireNonNull(f, "f is null");
+		return new Pair<T>(f.apply(this.t1), f.apply(this.t2));
 	}
 
 	public T getT1() {

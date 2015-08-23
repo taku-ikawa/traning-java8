@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.Test;
@@ -14,6 +15,12 @@ public class SubDirectoryGetterTest {
 	private final String testDirPath = System.getProperty("user.dir");
 	private final String testTargetDirName = "src";
 
+	@Test
+	public void test() {
+		Stream<String> s = Stream.generate(() -> "Echo");
+		s.collect(Collectors.toList());
+	}
+	
 	@Test
 	public void test_getSubDirLambda() {
 		File targetFile = new File(testDirPath);

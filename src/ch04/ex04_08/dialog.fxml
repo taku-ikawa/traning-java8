@@ -34,8 +34,10 @@
 			GridPane.columnSpan="2"
 			alignment="CENTER" spacing="10" >
 			<children>
-				<Button text="Ok" />
-				<Button text="Cancel" />
+				<Button id="okButton"
+				text="Ok" />
+				<Button id="cancelButton"
+				text="Cancel" />
 			</children>
 		</HBox>
 	</children>

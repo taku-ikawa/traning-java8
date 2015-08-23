@@ -24,4 +24,20 @@ public interface RunnableEx {
 
 	public void run() throws InterruptedException;
 
+
+
+//	public static Runnable uncheck(Callable runner){
+//		Objects.requireNonNull(runner);
+//		return () -> {
+//			try {
+//				((RunnableEx) runner).run();
+//			} catch (RuntimeException e) {
+//				throw e;
+//			} catch (Exception e) {
+//				throw new RuntimeException(e);
+//			}
+//		};
+//	}
+
+
 }
