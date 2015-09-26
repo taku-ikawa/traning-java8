@@ -17,6 +17,11 @@ import javafx.util.Duration;
 
 public class Viewer extends Application{
 
+	// 講義時メモ
+	// Imageを渡すのはだめ
+	// 前段の計算を順番にたどるように実装しなければいけない
+
+
 	@Override
 	public void start(Stage stage) throws Exception {
 		ImageView imageView = new ImageView();
@@ -235,7 +240,7 @@ public class Viewer extends Application{
 		}else if(blue > 1){
 			blue = 1;
 		}
-		
+
 		return new Color(red, green, blue, opacity);
 	}
 

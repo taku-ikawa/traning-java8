@@ -15,6 +15,11 @@ public class Scheduler {
 		return instance;
 	}
 
+	/**
+	 * スケジュールを登録します。
+	 * 登録されると、スケジュール時刻の15秒前になると、スケジュールに登録されているユーザーに対し、ユーザーアクションを通知するようになります。
+	 * @param schedule
+	 */
 	public void addSchedule(Schedule schedule) {
 		synchronized(schedleList) {
 			schedleList.add(schedule);

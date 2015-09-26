@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -18,24 +19,40 @@ public class Schedule {
 	public String getScheduleName() {
 		return scheduleName;
 	}
+	/**
+	 * スケジュール名を設定します。
+	 * @param scheduleName
+	 */
 	public void setScheduleName(String scheduleName) {
+		Objects.requireNonNull(scheduleName, "scheduleName is null");
 		this.scheduleName = scheduleName;
 	}
 	public LocalDateTime getScheduleTime() {
 		return scheduleTime;
 	}
+	/**
+	 * スケジュールの時刻を設定します。
+	 * 時刻の15秒前になると、スケジュールに登録されているユーザーに対し、ユーザーアクションを通知します。
+	 * @param scheduleTime
+	 */
 	public void setScheduleTime(LocalDateTime scheduleTime) {
+		Objects.requireNonNull(scheduleTime, "scheduleTime is null");
 		this.scheduleTime = scheduleTime;
 	}
 
+	/**
+	 * スケジュールにユーザーを登録します
+	 * @param user
+	 */
 	public void addUser(User user) {
+		Objects.requireNonNull(user, "user is null");
 		userList.add(user);
 	}
 
 	public void startNotifyTimer() {
-		
+
 		System.out.println("startNotifyTimer");
-		
+
 		Timer timer = new Timer();
 
 		for(User user : userList) {

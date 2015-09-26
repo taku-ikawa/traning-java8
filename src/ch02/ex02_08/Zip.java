@@ -7,6 +7,12 @@ import java.util.stream.Stream;
 
 public class Zip {
 
+	// 講義時コメント
+	// Listを新たに２つ生成するやり方では不十分。
+	// Spliterator を使用して実装する必要がある
+	// オリジナルのSpliteratorを実装するやりかたもある。
+
+
 	/**
 	 * streamであるfirstとsecondから要素を交互に取り出し、どちらかのストリームから要素がなくなったら停止する
 	 * @param first

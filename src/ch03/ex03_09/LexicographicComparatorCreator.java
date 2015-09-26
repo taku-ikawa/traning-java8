@@ -6,6 +6,9 @@ import java.util.Objects;
 
 public class LexicographicComparatorCreator {
 
+	// 講義時メモ
+	// このクラスがComoaratorを継承しろということ
+
 	/**
 	 * @param fieldNames
 	 * @return

@@ -6,7 +6,7 @@ import java.time.LocalTime;
 
 import org.junit.Test;
 
-public class TestTimeInterval {
+public class TimeIntervalTest {
 
 	@Test
 	public void test1() {

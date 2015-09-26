@@ -3,12 +3,9 @@ package ch05.ex05_06;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
-import org.junit.Test;
+public class FridayThe13th {
 
-public class Ex06Text {
-
-	@Test
-	public void test() {
+	public static void main(String[] args) {
 		for(int year = 1900; year < 2000; year++) {
 			for(int month = 1; month <= 12; month++) {
 				LocalDate localDate = LocalDate.of(year, month, 13);
@@ -19,4 +16,5 @@ public class Ex06Text {
 			}
 		}
 	}
+	
 }

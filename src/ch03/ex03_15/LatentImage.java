@@ -12,6 +12,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
+// 講義時メモ
+// PixcelWriterはパラレルだとNGなのに無視している
+
 public class LatentImage {
 
 	private Image in;

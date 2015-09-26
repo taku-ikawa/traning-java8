@@ -10,6 +10,9 @@ import javafx.scene.paint.Color;
 
 public class LatentImage {
 
+	// 講義時メモ
+	// LatentImageがPixcelReaderをimplementsしてtransformで引き回せるようにする
+
 	private Image in;
 	private List<ColorTransformer> pendingColorTransformerOperatins = new ArrayList<ColorTransformer>();
 

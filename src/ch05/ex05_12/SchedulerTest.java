@@ -5,7 +5,7 @@ import java.time.ZoneId;
 
 import org.junit.Test;
 
-public class Ex12Test {
+public class SchedulerTest {
 
 	@Test
 	public void test() {
@@ -26,7 +26,6 @@ public class Ex12Test {
 		try {
 			Thread.sleep(1000*60);
 		} catch (InterruptedException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	}

@@ -8,6 +8,9 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
 public interface ColorTransformer {
+	
+	// 講義時メモ
+	// IntStreamで
 
 //	Color apply(int x, int y, Color colorAtXY);
 //

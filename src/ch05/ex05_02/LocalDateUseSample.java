@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-public class Ex02Test {
+public class LocalDateUseSample {
 
 	@Test
 	public void test() {

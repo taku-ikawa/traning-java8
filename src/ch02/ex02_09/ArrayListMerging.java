@@ -5,6 +5,9 @@ import java.util.stream.Stream;
 
 public class ArrayListMerging {
 
+	// 講義時コメント
+	// 問題の意味は、3つの形式reduceでそれぞれ実装しろということ
+
 	/**
 	 * Stream<ArrayList<T>>内のすべての要素を、１つのArrayList<T>へまとめる
 	 * @param stream

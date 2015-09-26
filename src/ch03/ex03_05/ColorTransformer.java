@@ -10,6 +10,11 @@ public interface ColorTransformer {
 
 	Color apply(int x, int y, Color colorAtXY);
 
+
+	// 講義時コメント
+	// Imageをわたさなくてもできる
+
+
 	/**
 	 * ImageをColorTransformerに従ってカスタマイズされたImageに変換します
 	 *

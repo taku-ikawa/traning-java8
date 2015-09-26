@@ -4,11 +4,11 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-public class Ex05Text {
+public class PeriodPrinterText {
 
 	@Test
 	public void test() {
-		Ex05.printPeriod(LocalDate.of(1982, 9, 17));
+		PeriodPrinter.printPeriod(LocalDate.of(1982, 9, 17));
 	}
 
 }
