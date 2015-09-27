@@ -14,16 +14,16 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 
 public class LinkSearcher {
-	
+
 	public static void main(String[] args) throws IOException {
-		
+
 		URL url = new URL("http://www.debian.org/");
-		
+
 		CompletableFuture<String> contents = readPage(url);
-		
+
 		ForkJoinPool.commonPool().awaitQuiescence(10, TimeUnit.SECONDS);
 	}
-	
+
 	private static CompletableFuture<String> readPage(URL url) throws IOException {
 		System.setProperty("proxySet", "true");
 		//System.setProperty("proxyHost", "192.168.1.33");
@@ -35,10 +35,10 @@ public class LinkSearcher {
         Authenticator.setDefault(new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("p000480075", "meiren18".toCharArray());
+                return new PasswordAuthentication("p000480075", "dummy".toCharArray());
             }
         });
-		
+
 		HttpURLConnection urlconn = (HttpURLConnection)url.openConnection();
 		urlconn.setRequestMethod("GET");
 		urlconn.setInstanceFollowRedirects(false);
@@ -72,7 +72,7 @@ public class LinkSearcher {
 		reader.close();
 		urlconn.disconnect();
 
-		
+
 		return null;
 	}
 
