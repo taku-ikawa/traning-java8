@@ -33,12 +33,7 @@ public class Fibonacci {
 		});
 
 		Arrays.parallelPrefix(matrixArray, (x, y) -> {
-			Matrix matrix = new Matrix();
-			matrix.setComponent1_1(x.getComponent1_1() * y.getComponent1_1() + x.getComponent1_2() * y.getComponent2_1());
-			matrix.setComponent1_2(x.getComponent1_1() * y.getComponent1_2() + x.getComponent1_2() * y.getComponent2_2());
-			matrix.setComponent2_1(x.getComponent2_1() * y.getComponent1_1() + x.getComponent2_2() * y.getComponent2_1());
-			matrix.setComponent2_2(x.getComponent2_1() * y.getComponent1_2() + x.getComponent2_2() * y.getComponent2_2());
-			return matrix;
+			return x.multiply(y);
 		});
 
 		return matrixArray[index-2].getComponent1_1();

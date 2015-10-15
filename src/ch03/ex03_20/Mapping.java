@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
+// ArrayListをつくるべきでない
+// mapしてcollectするのがよい
+
 public class Mapping {
 
 	/**

@@ -17,7 +17,7 @@ public class MyTemporalAdjuster {
 	public TemporalAdjuster next(Predicate<LocalDate> predicate) {
 		Objects.requireNonNull(predicate, "predicate is null");
 		return TemporalAdjusters.ofDateAdjuster((localDate) -> {
-			LocalDate result = (LocalDate) localDate;
+			LocalDate result = localDate;
 			do {
 				result = result.plusDays(1);
 			}while (!predicate.test(result));

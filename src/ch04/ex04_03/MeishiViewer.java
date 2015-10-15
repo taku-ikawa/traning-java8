@@ -9,6 +9,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+// ラベルを用意するのではなく、
+// プロパティに対してデフォルト値をどう用意するかの問題
+
 public class MeishiViewer extends Application{
 
 	@Override

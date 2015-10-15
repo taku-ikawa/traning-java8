@@ -7,8 +7,12 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
+// ジェネリックを解決できていない
+// よって実装がそもそもあっていない
+// 別に無名クラスを作成せずとも、createObjectBindingを使用すればよい p.94、p.95
+
 public class Observer {
-	
+
 	public static <T, R> ObservableValue<R> observe(Function<T, R> f, ObservableValue<T> t) {
 		return new ObservableValue<R>() {
 			@Override

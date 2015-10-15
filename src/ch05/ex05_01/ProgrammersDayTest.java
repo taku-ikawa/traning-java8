@@ -14,7 +14,7 @@ public class ProgrammersDayTest {
 		assertEquals(9, localDate.getMonth().getValue());
 		assertEquals(13, localDate.getDayOfMonth());
 	}
-	
+
 	@Test
 	public void test2() {
 		LocalDate localDate = new ProgrammersDay().calculateProgrammersDay2(2015);

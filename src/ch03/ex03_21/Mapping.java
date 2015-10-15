@@ -10,7 +10,6 @@ import java.util.function.Function;
 public class Mapping {
 
 	/**
-	 * ListをFunctionに従って変換したListを返す
 	 * @param m
 	 * @param f
 	 * @return
@@ -20,13 +19,13 @@ public class Mapping {
 		Objects.requireNonNull(m, "m is null");
 		Objects.requireNonNull(f, "f is null");
 
-		T t = null;;
-		try {
-			t = m.get();
-		} catch (InterruptedException | ExecutionException e) {
-			e.printStackTrace();
-		}
-		U u = f.apply(t);
+//		T t = null;;
+//		try {
+//			t = m.get();
+//		} catch (InterruptedException | ExecutionException e) {
+//			e.printStackTrace();
+//		}
+//		U u = f.apply(t);
 
 		return new Future<U> (){
 			@Override
@@ -43,7 +42,10 @@ public class Mapping {
 			}
 			@Override
 			public U get() throws InterruptedException, ExecutionException {
-				return u;
+				// return u;
+
+				// ここでへんかんしてかえす
+				return null;
 			}
 
 			@Override
@@ -51,7 +53,10 @@ public class Mapping {
 					throws InterruptedException, ExecutionException,
 					TimeoutException {
 				m.get(timeout, unit);
-				return u;
+				//return u;
+
+				// ここでへんかんしてかえす
+				return null;
 			}
 
 		};

@@ -7,6 +7,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+// ウィンドウを縦長にしたときに、ただしくできていない。
+
 public class DisplayCircle extends Application{
 
 	@Override

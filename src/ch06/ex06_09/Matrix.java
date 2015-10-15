@@ -1,7 +1,7 @@
 package ch06.ex06_09;
 
 public class Matrix {
-	
+
 	private int component1_1;
 	private int component1_2;
 	private int component2_1;
@@ -29,6 +29,15 @@ public class Matrix {
 	}
 	public void setComponent2_2(int component2_2) {
 		this.component2_2 = component2_2;
+	}
+
+	public Matrix multiply(Matrix arg) {
+		Matrix matrix = new Matrix();
+		matrix.setComponent1_1(this.getComponent1_1() * arg.getComponent1_1() + this.getComponent1_2() * arg.getComponent2_1());
+		matrix.setComponent1_2(this.getComponent1_1() * arg.getComponent1_2() + this.getComponent1_2() * arg.getComponent2_2());
+		matrix.setComponent2_1(this.getComponent2_1() * arg.getComponent1_1() + this.getComponent2_2() * arg.getComponent2_1());
+		matrix.setComponent2_2(this.getComponent2_1() * arg.getComponent1_2() + this.getComponent2_2() * arg.getComponent2_2());
+		return matrix;
 	}
 
 }
