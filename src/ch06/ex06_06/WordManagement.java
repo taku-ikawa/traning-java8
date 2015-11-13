@@ -6,7 +6,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -43,7 +42,8 @@ public class WordManagement {
 					List<String> words = Arrays.asList(contents.split("[\\P{L}]+"));
 					for(String word : words) {
 						wordMap.computeIfAbsent(word, (k) -> {
-							Set<File> initialValue = new HashSet<File>();
+							// ConcurrentなHashMapにしないとだめ
+							Set<File> initialValue = ConcurrentHashMap.newKeySet();
 							initialValue.add(file);
 							return initialValue;
 						}).add(file);

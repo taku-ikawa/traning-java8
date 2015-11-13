@@ -1,0 +1,10 @@
+// OK
+Washington, DC 12345
+Washington, DC 12345-1234
+Washington, DC 12345 xxx
+
+// NG
+Washington, DC
+Washington, DC12345
+Washington, DC 123456
+Washington, DC 12345-12345
