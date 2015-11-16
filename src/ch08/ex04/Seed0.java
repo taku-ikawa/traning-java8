@@ -1,6 +1,8 @@
 package ch08.ex04;
 
+import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class Seed0 {
 
@@ -17,7 +19,11 @@ public class Seed0 {
 		System.out.println(r.nextDouble());
 		System.out.println(r.nextDouble());
 
-
+		Stream<Double> stream = Stream.iterate(0.0, n -> {
+			return prev(n);
+		}).limit(10000);
+		Optional<Double> min = stream.min((a, b) -> a.compareTo(b));
+		System.out.println("min:"+min.get());
 	}
 
 	private static double prev(double s) {
