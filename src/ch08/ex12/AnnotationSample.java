@@ -37,8 +37,8 @@ public class AnnotationSample {
 				TestCase[] TestCasez = testCases.value();
 				for (TestCase testCase : TestCasez) {
 					try {
-						System.out.println("params:" + testCase.params()
-								+ ", expected:" + testCase.expected());
+						System.out.println("TestCase(params = " + testCase.params()
+								+ ", expected = " + testCase.expected()+")");
 						Long ret = (Long) method
 								.invoke(null, new Object[] { new Integer(
 										testCase.params()) });
@@ -49,7 +49,6 @@ public class AnnotationSample {
 							System.out.println("False!! expected:"
 									+ testCase.expected() + " actual:" + ret);
 						}
-						System.out.println("ret:" + ret);
 					} catch (IllegalAccessException | IllegalArgumentException
 							| InvocationTargetException e) {
 						e.printStackTrace();

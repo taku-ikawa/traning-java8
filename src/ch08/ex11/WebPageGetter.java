@@ -16,18 +16,17 @@ import java.util.concurrent.TimeUnit;
 public class WebPageGetter {
 
 	// 取得できませんでした。。
+	// java.io.IOException: Server returned HTTP response code: 403 for URL: http://www32.atpages.jp/iftest/pw/service.html
 
+	private static final String BASIC_AUTH_SITE_ADDRESS = "http://www32.atpages.jp/iftest/pw/service.html";
+	private static final String BASIC_AUTH_SITE_ID = "bss";
+	private static final String BASIC_AUTH_SITE_PASS = "bsspw";
 
 	public static void main(String[] args) {
 
 		URL url = null;
 		try {
-
-			// httpsのサイトでためした場合は取得できませんでした。。
-			url = new URL("http://www.ricoh.co.jp/");
-
-
-
+			url = new URL(BASIC_AUTH_SITE_ADDRESS); // ベーシック認証のサンプルのサイト
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -58,7 +57,7 @@ public class WebPageGetter {
 					urlconn.setInstanceFollowRedirects(false);
 
 					Base64.Encoder encoder = Base64.getEncoder();
-					String original = "username:password";
+					String original = BASIC_AUTH_SITE_ID+":"+BASIC_AUTH_SITE_PASS;
 					String encoded = encoder.encodeToString(original.getBytes(StandardCharsets.UTF_8));
 					urlconn.setRequestProperty("Authorization", "Basic "+encoded);
 					urlconn.connect();
